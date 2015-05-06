@@ -57,6 +57,16 @@ angular.module('brunchball', ['ionic', 'brunchball.controllers', 'brunchball.ser
         }
       }
     })
+  
+    .state('tab.events', {
+      url: '/events',
+      views: {
+        'tab-events': {
+          templateUrl: 'templates/tab-events.html',
+          controller: 'EventsCtrl'
+        }
+      }
+    })
 
     .state('tab.account', {
       url: '/account',

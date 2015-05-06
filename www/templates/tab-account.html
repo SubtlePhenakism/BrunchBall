@@ -1,6 +1,14 @@
 <ion-view title="Account">
   <ion-content>
-    <div class="list" ng-show="showLoginForm">
+    <div class="list list-inset" ng-show="showLoginForm">
+      <label class="item item-input" ng-show="showCreateAccountForm">
+        <span class="input-label">First Name</span>
+        <input type="text" ng-model="fn"/>
+      </label>
+      <label class="item item-input" ng-show="showCreateAccountForm">
+        <span class="input-label">Last Name</span>
+        <input type="text" ng-model="ln"/>
+      </label> 
       <label class="item item-input">
         <span class="input-label">Email</span>
         <input type="text" ng-model="em"/>
@@ -9,17 +17,24 @@
         <span class="input-label">Password</span>
         <input type="password" ng-model="pwd"/>
       </label>
-      <button class="button button-block button-positive" ng-click="login(em, pwd)">
+      <button class="button button-block button-positive" ng-click="login(em, pwd)" ng-hide="showCreateAccountForm">
         Login
-      </button>
+      </button> 
+        <button class="button button-clear button-block button-positive" ng-hide="showCreateAccountForm">OR</button>
+        <button class="button button-block button-outline button-positive" ng-click="createANewAccountForm()" ng-hide="showCreateAccountForm">Create a new account</button>
+        <button class="button button-block button-outline button-positive" ng-click="createNewAccount()" ng-show="showCreateAccountForm">Create account</button>
+        <button class="button button-clear button-block button-positive" ng-show="showCreateAccountForm">OR</button>
+        <button class="button button-block button-positive" ng-click="backToLogin()" ng-show="showCreateAccountForm">Back to Login</button> 
     </div>
     <div class="card" ng-hide="showLoginForm">
       <div class="item item-text-wrap">
         You are logged in as {{user.password.email}}
       </div>
     </div>
-    <button class="button button-stable" ng-click="logout()" ng-hide="showLoginForm">
-      Logout
-    </button>
+    <div class="padding">
+        <button class="button button-block button-outline button-positive" ng-click="logout()" ng-hide="showLoginForm">
+          Logout
+        </button>
+    </div>
   </ion-content>
 </ion-view>

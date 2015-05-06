@@ -5,7 +5,8 @@ angular.module('brunchball.services', [])
 .factory('fireBaseData', function($firebase) {
   var ref = new Firebase("https://brunchball.firebaseio.com/"),
       refExpenses = new Firebase("https://brunchball.firebaseio.com/expenses"),
-      refRoomMates = new Firebase("https://brunchball.firebaseio.com/room-mates");
+      refFriends = new Firebase("https://brunchball.firebaseio.com/friends"),
+      refEvents = new Firebase("https://brunchball.firebaseio.com/events");
   return {
     ref: function () {
       return ref;
@@ -13,8 +14,11 @@ angular.module('brunchball.services', [])
     refExpenses: function () {
       return refExpenses;
     },
-    refRoomMates: function () {
-      return refRoomMates;
+    refEvents: function () {
+      return refEvents;
+    },
+    refFriends: function () {
+      return refFriends;
     }
   }
 });
